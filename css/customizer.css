@@ -1,0 +1,797 @@
+h1, h2, h3, h4, h5, h6, .site-title, .entry-title, .woocommerce-loop-product__title { font-family: 'Yeseva One', Georgia, serif !important; font-weight: 400 !important; }
+
+/* PROMO STRIP AT TOP */
+.woocommerce-store-notice { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: auto !important; margin: 0 !important; z-index: 99999; background: #97BAFB !important; color: #000 !important; text-align: center; padding: 8px 1em !important; font-size: 14px; border-radius: 0 !important; }
+.woocommerce-store-notice * { color: #000 !important; }
+.woocommerce-store-notice__dismiss-link { display: none !important; }
+body { padding-top: 34px !important; }
+
+/* HERO */
+.hero-banner { background: #161616 !important; color: #F7F7F7; padding: 7em 2em; text-align: center; margin: 0 -9999px 3em -9999px; padding-left: 9999px; padding-right: 9999px; }
+.hero-banner h1 { color: #F7F7F7 !important; font-size: 4em !important; margin-bottom: 0.4em; line-height: 1; }
+.hero-banner p { color: #F7F7F7 !important; font-size: 1.3em; margin-bottom: 2em; }
+.hero-banner .button { background: transparent !important; color: #F7F7F7 !important; border: 2px solid #F7F7F7 !important; padding: 1em 3em !important; border-radius: 0 !important; letter-spacing: 0.1em; text-transform: uppercase; display: inline-block; }
+.hero-banner .button:hover { background: #F7F7F7 !important; color: #161616 !important; }
+
+/* HEADER - slim and compact */
+.site-header { background: #161616 !important; padding: 0.7em 0 !important; }
+.site-header *, .site-header a { color: #F7F7F7 !important; }
+.site-header a:hover { opacity: 0.7; }
+.site-search { display: none !important; }
+.secondary-navigation { display: none !important; }
+.site-header .main-navigation .menu li a { padding: 0.4em 0.8em !important; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.05em; }
+.site-header .site-branding img.custom-logo { max-height: 50px; width: auto; }
+.site-header .site-branding .site-title { font-size: 1.4em !important; margin: 0 !important; }
+.site-header .site-branding .site-description { display: none !important; }
+.site-header .col-full { padding-top: 0 !important; padding-bottom: 0 !important; }
+
+/* BASE */
+body { background: #ffffff !important; color: #333 !important; }
+.site-content { background: #ffffff !important; }
+
+/* BUTTONS */
+.button, button, .woocommerce a.button, .woocommerce button.button, input[type='submit'] { border-radius: 0 !important; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.85em 1.7em; background: #161616 !important; color: #fff !important; border: 1px solid #161616 !important; }
+.woocommerce a.button:hover, .woocommerce button.button:hover { background: #fff !important; color: #161616 !important; }
+
+/* PRODUCT GRID */
+.woocommerce ul.products li.product { background: #fafafa; padding: 1.5em 1em; text-align: center; transition: box-shadow 0.2s ease; }
+.woocommerce ul.products li.product:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.woocommerce ul.products li.product .woocommerce-loop-product__title { font-size: 1.05em !important; min-height: 2.6em; color: #222; }
+.woocommerce ul.products li.product .price { color: #161616 !important; font-weight: 700 !important; font-family: 'Lato', sans-serif !important; font-size: 1.1em; }
+
+/* HEADINGS */
+.site-content h2.wp-block-heading { font-size: 2.2em !important; text-align: center; margin: 2em 0 1em; color: #222 !important; }
+
+/* FOOTER - white to match live */
+.site-footer { background: #ffffff !important; color: #333 !important; padding: 2.5em 0 !important; text-align: center; border-top: 1px solid #ddd; }
+.site-footer *, .site-footer a { color: #333 !important; }
+.site-footer .widget-area, .storefront-handheld-footer-bar { display: none !important; }
+
+/* HIDE NOISE */
+.entry-header, .page-title, .home .entry-title { display: none !important; }
+
+/* HERO CAROUSEL - 4 slides cross-fade */
+.hero-carousel { position: relative; overflow: hidden; min-height: 550px; }
+.hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; animation: slideFade 24s infinite; }
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 6s; }
+.hero-slide:nth-child(3) { animation-delay: 12s; }
+.hero-slide:nth-child(4) { animation-delay: 18s; }
+@keyframes slideFade {
+  0%   { opacity: 0; }
+  4%   { opacity: 1; }
+  25%  { opacity: 1; }
+  29%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+.hero-overlay { position: relative; z-index: 2; padding: 6em 2em; text-align: center; color: #fff; background: rgba(0,0,0,0.45); }
+.hero-overlay h1 { color: #fff !important; font-size: 4em !important; margin-bottom: 0.4em; line-height: 1; text-shadow: 0 2px 18px rgba(0,0,0,0.6); }
+.hero-overlay p { color: #fff !important; font-size: 1.3em; margin-bottom: 2em; text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
+.hero-overlay .button { background: transparent !important; color: #fff !important; border: 2px solid #fff !important; padding: 1em 3em !important; border-radius: 0 !important; letter-spacing: 0.1em; text-transform: uppercase; display: inline-block; }
+.hero-overlay .button:hover { background: #fff !important; color: #161616 !important; }
+
+/* SUBSCRIBE BLOCK */
+.subscribe-section { background: #161616; color: #fff; padding: 3em 2em; text-align: center; margin: 3em -9999px 0 -9999px; padding-left: 9999px; padding-right: 9999px; }
+.subscribe-section h3 { color: #fff !important; font-size: 2em !important; margin-bottom: 0.3em; }
+.subscribe-section p { color: #ccc; margin-bottom: 1.5em; }
+.subscribe-form { display: inline-flex; gap: 0; max-width: 500px; width: 100%; }
+.subscribe-form input[type=email] { flex: 1; padding: 0.9em 1.2em; border: 1px solid #fff; background: transparent; color: #fff; font-size: 1em; border-radius: 0; }
+.subscribe-form input[type=email]::placeholder { color: #aaa; }
+.subscribe-form .button { padding: 0.9em 2em !important; }
+
+/* Hide footer widget cruft + handheld bar */
+.site-footer .widget-area, .site-footer .site-info { display: none !important; }
+.dsb-footer-copy { color: #666 !important; }
+
+/* Loop product title (now H3 via mu-plugin) - smaller so it doesn't compete */
+.woocommerce ul.products li.product h3.woocommerce-loop-product__title { font-size: 1em !important; margin: 0.5em 0 0.3em; line-height: 1.3; min-height: 2.6em; }
+
+/* === DSB_V6_START === */
+/* ================================
+   Hero — 2-column (text left / image right)
+   ================================ */
+.hero-banner.hero-carousel, .hero-banner { display: none !important; }
+
+.hero-2col { background: #161616; color: #F7F7F7; padding: 0; margin: 0; }
+.hero-2col-inner {
+  max-width: 1200px; margin: 0 auto; padding: 4em 1.5em;
+  display: flex; align-items: center; gap: 3em;
+}
+.hero-2col .hero-text { flex: 1 1 50%; min-width: 0; }
+.hero-2col .hero-image {
+  flex: 1 1 50%; min-height: 480px;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+.hero-2col h1 {
+  font-family: "Yeseva One", Georgia, serif;
+  font-size: 72px; line-height: 1.05; font-weight: 400;
+  color: #F7F7F7; margin: 0 0 0.5em 0;
+}
+.hero-2col .hero-tag {
+  font-family: "Lato", sans-serif; font-size: 1.05em; color: #d8d8d8; margin: 0 0 1.5em 0;
+}
+.hero-2col .hero-btn {
+  display: inline-block; background: transparent; color: #fff;
+  border: 1px solid #fff; padding: 0.85em 2em;
+  font-family: "Lato", sans-serif; font-size: 0.95em;
+  text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;
+  transition: background .15s, color .15s;
+}
+.hero-2col .hero-btn:hover { background: #fff; color: #161616; }
+@media (max-width: 768px) {
+  .hero-2col-inner { flex-direction: column; padding: 2em 1em; }
+  .hero-2col .hero-image { width: 100%; min-height: 320px; }
+  .hero-2col h1 { font-size: 48px; }
+}
+
+/* ================================
+   Featured Products — asymmetric (1 big + 5 smaller)
+   Image fills card; title/price stack INSIDE the link below the image.
+   ================================ */
+.featured-asymmetric ul.products {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-auto-rows: 240px;
+  gap: 14px;
+  list-style: none !important;
+  margin: 2em auto 3em !important;
+  max-width: 1100px;
+  padding: 0 !important;
+}
+.featured-asymmetric ul.products li.product {
+  float: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column;
+  position: relative;
+}
+.featured-asymmetric ul.products li.product:first-child { grid-row: 1 / span 2; }
+
+/* Link wraps img + title + price; make it a flex column */
+.featured-asymmetric ul.products li.product &gt; a.woocommerce-LoopProduct-link {
+  display: flex !important;
+  flex-direction: column;
+  flex: 1 1 auto;
+  text-decoration: none !important;
+  color: inherit !important;
+  position: static !important;
+  text-indent: 0 !important;
+  overflow: visible !important;
+  inset: auto !important;
+  z-index: auto !important;
+}
+
+/* Image fills the top portion */
+.featured-asymmetric ul.products li.product img {
+  width: 100% !important;
+  height: 75% !important;
+  flex: 0 0 75% !important;
+  object-fit: cover !important;
+  margin: 0 !important;
+  display: block;
+}
+
+.featured-asymmetric ul.products li.product .woocommerce-loop-product__title {
+  font-family: "Yeseva One", Georgia, serif !important;
+  font-size: 0.9em !important;
+  font-weight: 400 !important;
+  color: #1B1B1B !important;
+  padding: 0.5em 0.8em 0 !important;
+  margin: 0 !important;
+  line-height: 1.2 !important;
+  text-align: center;
+}
+.featured-asymmetric ul.products li.product:first-child .woocommerce-loop-product__title {
+  font-size: 1.3em !important;
+  padding: 0.7em 1em 0 !important;
+}
+
+.featured-asymmetric ul.products li.product .price {
+  color: #1B1B1B !important;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 0.85em !important;
+  padding: 0.2em 0.8em !important;
+  margin: 0 !important;
+  text-align: center;
+}
+
+.featured-asymmetric ul.products li.product .button {
+  background: #161616 !important;
+  color: #fff !important;
+  margin: 0.4em 0.8em 0.8em !important;
+  display: block !important;
+  width: auto !important;
+  align-self: stretch;
+  font-size: 0.7em !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.6em 1em !important;
+  text-align: center;
+  border-radius: 2px;
+}
+.featured-asymmetric ul.products li.product .button:hover {
+  background: #333 !important;
+}
+
+@media (max-width: 768px) {
+  .featured-asymmetric ul.products { grid-template-columns: 1fr; grid-auto-rows: 300px; }
+  .featured-asymmetric ul.products li.product:first-child { grid-row: auto; }
+}
+
+/* ================================
+   Header — hide cart/account
+   ================================ */
+.site-header-cart,
+.site-header .my-account,
+.site-header .menu-item-my-account,
+.site-header .menu-item a[href*="/cart"],
+.site-header .menu-item a[href*="/my-account"],
+ul#menu-primary li.menu-item a[href*="cart"],
+ul#menu-primary li.menu-item a[href*="my-account"] { display: none !important; }
+.site-header-cart .cart-contents { display: none !important; }
+
+/* === DSB_V6_END === */
+
+/* === DSB_V7_START === */
+/* === V7: full-bleed hero (breaks out of Storefront's container) === */
+.hero-2col {
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  width: 100vw !important;
+  padding: 0 !important;
+}
+.hero-2col-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4em 2em;
+}
+
+/* Featured-asymmetric: overlay-on-image style (matches live's bottom-gradient titles) */
+.featured-asymmetric ul.products li.product {
+  border: none !important;
+  background: #f3f3f3 !important;
+}
+.featured-asymmetric ul.products li.product &gt; a.woocommerce-LoopProduct-link {
+  position: relative;
+  display: block !important;
+  height: 100%;
+}
+.featured-asymmetric ul.products li.product img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  flex: none !important;
+  object-fit: cover !important;
+  z-index: 0;
+}
+.featured-asymmetric ul.products li.product::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.featured-asymmetric ul.products li.product .woocommerce-loop-product__title {
+  position: absolute !important;
+  left: 0; right: 0;
+  bottom: 50px;
+  z-index: 2;
+  color: #fff !important;
+  text-align: center;
+  padding: 0 0.8em !important;
+  margin: 0 !important;
+  font-family: "Yeseva One", Georgia, serif !important;
+  font-size: 0.95em !important;
+  font-weight: 400 !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+  line-height: 1.2 !important;
+}
+.featured-asymmetric ul.products li.product:first-child .woocommerce-loop-product__title {
+  font-size: 1.6em !important;
+  bottom: 60px;
+}
+.featured-asymmetric ul.products li.product .price {
+  position: absolute !important;
+  left: 0; right: 0;
+  bottom: 24px;
+  z-index: 2;
+  color: #fff !important;
+  text-align: center;
+  margin: 0 !important;
+  padding: 0 0.8em !important;
+  font-size: 0.85em !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.7);
+}
+.featured-asymmetric ul.products li.product .button {
+  position: absolute !important;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: #fff !important;
+  color: #161616 !important;
+  font-size: 0.65em !important;
+  padding: 0.4em 0.8em !important;
+  margin: 0 !important;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+
+/* === DSB_V7_END === */
+
+/* === DSB_V8_START === */
+/* === V8: 3-card Featured Categories matching live === */
+.featured-cats-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 1.5em auto 3em;
+  padding: 0 1em;
+}
+.featured-cat-card {
+  position: relative;
+  display: block;
+  height: 380px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.featured-cat-card::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.55) 100%);
+}
+.featured-cat-card .featured-cat-label {
+  position: absolute;
+  left: 0; right: 0;
+  bottom: 1em;
+  z-index: 2;
+  color: #fff;
+  font-family: "Yeseva One", Georgia, serif;
+  font-size: 1.4em;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+  padding: 0 1em;
+}
+.featured-cat-card:hover { transform: scale(1.02); transition: transform .2s; }
+
+@media (max-width: 768px) {
+  .featured-cats-3 { grid-template-columns: 1fr; }
+}
+
+/* === V8: Subscribe section — matches live (dark full-bleed) === */
+.subscribe-section {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  width: 100vw;
+  background: #161616;
+  color: #fff;
+  padding: 3em 2em;
+  text-align: center;
+}
+.subscribe-section h3 {
+  font-family: "Yeseva One", Georgia, serif;
+  font-size: 1.8em;
+  font-weight: 400;
+  color: #fff;
+  margin: 0 0 0.4em;
+}
+.subscribe-section p {
+  color: #ccc;
+  margin: 0 0 1.5em;
+  font-family: "Lato", sans-serif;
+}
+.subscribe-form {
+  display: inline-flex;
+  gap: 0.5em;
+  max-width: 480px;
+  width: 100%;
+}
+.subscribe-form input[type="email"] {
+  flex: 1 1 auto;
+  padding: 0.7em 1em;
+  border: 1px solid #444;
+  background: #222;
+  color: #fff;
+  border-radius: 3px;
+}
+.subscribe-form input[type="email"]::placeholder { color: #888; }
+.subscribe-form button.button {
+  background: #fff !important;
+  color: #161616 !important;
+  border: none;
+  padding: 0.7em 1.5em !important;
+  border-radius: 999px !important;
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+}
+.subscribe-form button.button:hover { background: #e0e0e0 !important; }
+
+/* === DSB_V8_END === */
+
+/* === DSB_V10_START === */
+/* === V10: properly URL-encoded SVG for cart icon === */
+
+.site-header-cart { display: flex !important; }
+.site-header-cart .cart-contents { display: inline-flex !important; align-items: center; }
+
+.site-header-cart .cart-contents .woocommerce-Price-amount,
+.site-header-cart .cart-contents .count,
+.site-header-cart .cart-contents .amount {
+  display: none !important;
+}
+
+.site-header-cart .cart-contents {
+  width: 28px;
+  height: 28px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%279%27%20cy%3D%2721%27%20r%3D%271%27%2F%3E%3Ccircle%20cx%3D%2720%27%20cy%3D%2721%27%20r%3D%271%27%2F%3E%3Cpath%20d%3D%27M1%201h4l2.7%2013.4a2%202%200%200%200%202%201.6h9.7a2%202%200%200%200%202-1.6L23%206H6%27%2F%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+}
+
+.site-header-cart .widget_shopping_cart { display: none; }
+.site-header-cart:hover .widget_shopping_cart {
+  display: block;
+  position: absolute;
+  right: 1em;
+  top: 100%;
+  background: #fff;
+  color: #161616;
+  padding: 1em;
+  min-width: 280px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+.site-header-cart:hover .widget_shopping_cart * { color: #161616 !important; }
+
+.site-header { position: relative; }
+.site-header-cart {
+  position: absolute !important;
+  right: 1.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+  width: auto !important;
+}
+.site-header-cart li { list-style: none; margin: 0; padding: 0; display: inline-block; }
+
+/* Cart count badge */
+.site-header-cart .cart-contents::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: -4px;
+  width: 8px;
+  height: 8px;
+  background: #ff5555;
+  border-radius: 50%;
+  display: none;
+}
+.site-header-cart .cart-contents[aria-label*="1 item"]::after,
+.site-header-cart .cart-contents[aria-label*="items"]::after { display: block; }
+
+/* === DSB_V10_END === */
+
+
+/* === DSB_V11_START === */
+/* Header account + search icons to match live GoDaddy header (search, account, cart) */
+.dsb-header-icons {
+  position: absolute !important;
+  right: 4.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.1em;
+  z-index: 90;
+}
+.dsb-icon {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent no-repeat center / 24px 24px;
+  cursor: pointer;
+  text-indent: -9999px;
+  overflow: hidden;
+  opacity: 1;
+}
+.dsb-icon:hover { opacity: 0.7; }
+.dsb-search-toggle { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%277%27%2F%3E%3Cpath%20d%3D%27M21%2021l-4.3-4.3%27%2F%3E%3C%2Fsvg%3E"); }
+.dsb-account { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%278%27%20r%3D%274%27%2F%3E%3Cpath%20d%3D%27M4%2021c0-4%204-6%208-6s8%202%208%206%27%2F%3E%3C%2Fsvg%3E"); }
+
+/* Search dropdown panel */
+.dsb-search-panel {
+  position: absolute;
+  right: 1.5em;
+  top: 100%;
+  background: #161616;
+  padding: 1em;
+  min-width: 280px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  z-index: 200;
+}
+.dsb-search-panel[hidden] { display: none; }
+.dsb-search-panel .search-field {
+  width: 100%;
+  padding: 0.6em 0.8em;
+  border: 1px solid #444;
+  background: #fff;
+  color: #161616;
+}
+.dsb-search-panel button,
+.dsb-search-panel .search-submit {
+  margin-top: 0.6em;
+  background: #fff;
+  color: #161616 !important;
+  border: 0;
+  padding: 0.5em 1.2em;
+  cursor: pointer;
+}
+
+/* Nudge cart so the three icons sit evenly */
+.site-header-cart { right: 1.5em !important; }
+
+@media (max-width: 768px) {
+  .dsb-header-icons { right: 3.5em; gap: 0.9em; }
+  .dsb-icon { width: 24px; height: 24px; }
+}
+/* === DSB_V11_END === */
+
+
+/* === DSB_V12_START === */
+/* Kill Storefront's large header margin-bottom (~68px) -> removes the empty
+   band between header and hero. Live has no such gap. */
+.site-header { margin-bottom: 0 !important; }
+
+/* Mobile header to match live: hamburger (left) + logo (center) + cart (right) */
+@media (max-width: 768px) {
+  .storefront-primary-navigation .col-full,
+  .site-header .col-full { position: relative; }
+
+  .site-header .menu-toggle {
+    position: absolute !important;
+    left: 0.8em;
+    top: 0.4em !important;
+    transform: none !important;
+    width: 34px;
+    height: 34px;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    background: transparent url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%3E%3Cline%20x1%3D%273%27%20y1%3D%276%27%20x2%3D%2721%27%20y2%3D%276%27%2F%3E%3Cline%20x1%3D%273%27%20y1%3D%2712%27%20x2%3D%2721%27%20y2%3D%2712%27%2F%3E%3Cline%20x1%3D%273%27%20y1%3D%2718%27%20x2%3D%2721%27%20y2%3D%2718%27%2F%3E%3C%2Fsvg%3E") no-repeat center / 26px 20px !important;
+    color: transparent !important;
+    text-indent: -9999px;
+    overflow: hidden;
+    z-index: 95;
+  }
+  .site-header .menu-toggle::before,
+  .site-header .menu-toggle::after { display: none !important; }
+
+  /* Center the logo */
+  .site-header .site-branding { text-align: center !important; width: 100% !important; float: none !important; }
+  .site-header .site-branding img.custom-logo,
+  .site-header .site-branding .site-title { margin-left: auto !important; margin-right: auto !important; display: inline-block !important; float: none !important; }
+
+  /* Live keeps account/search inside the drawer, not the top bar */
+  .dsb-header-icons { display: none !important; }
+
+  /* Cart anchored top-right */
+  .site-header-cart { right: 0.9em !important; top: 0.55em !important; transform: none !important; }
+
+  /* Toggle is absolute (out of flow); padding the nav when open pushes the
+     in-flow drawer items down so they clear the hamburger. */
+  .main-navigation.toggled { padding-top: 3.2em !important; }
+}
+/* === DSB_V12_END === */
+
+/* === DSB_V13_START === */
+/* Desktop header to match live: nav (left) + logo (centered) + icons (right),
+   all on one vertically-centered row. Storefront stacks branding (col-full #1)
+   above the nav row (.storefront-primary-navigation); we collapse the branding
+   row and absolutely-center the logo over the nav bar. */
+@media (min-width: 769px) {
+  .site-header { position: relative; }
+
+  /* Collapse the original branding row (logo gets absolutely centered below) */
+  .site-header > .col-full:first-child {
+    min-height: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible;
+  }
+
+  /* The nav row becomes the single header bar */
+  .storefront-primary-navigation { position: relative; margin: 0 !important; }
+  .storefront-primary-navigation .col-full {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+  }
+
+  /* Nav (HOME / STORE) stays left, vertically centered */
+  .site-header .main-navigation { float: none !important; margin: 0 !important; }
+
+  /* Logo: absolutely centered over the whole header bar */
+  .site-header .site-branding {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    float: none !important;
+    text-align: center;
+    z-index: 5;
+  }
+  .site-header .site-branding img.custom-logo { max-height: 54px; width: auto; display: block; }
+
+  /* Right-side icon cluster (search + account), vertically centered */
+  .dsb-header-icons {
+    position: absolute !important;
+    right: 4.5em !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    display: flex;
+    align-items: center;
+    gap: 1.15em;
+    z-index: 6;
+  }
+  /* Cart, vertically centered, far right */
+  .site-header-cart {
+    position: absolute !important;
+    right: 1.5em !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: auto !important;
+  }
+  .site-header-cart .cart-contents { vertical-align: middle; }
+}
+/* === DSB_V13_END === */
+
+
+/* === DSB_V14_START === */
+/* Storefront's <button> styles were resetting the search toggle's background to
+   a solid dark color (glyph invisible). Force the magnifier icon. */
+.dsb-icon.dsb-search-toggle,
+button.dsb-search-toggle {
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-width%3D%271.7%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%277%27%2F%3E%3Cpath%20d%3D%27M21%2021l-4.3-4.3%27%2F%3E%3C%2Fsvg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 24px 24px !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+.dsb-icon.dsb-search-toggle:hover { background-color: transparent !important; opacity: 0.7; }
+/* === DSB_V14_END === */
+
+/* === DSB_V15_START === */
+/* Equal-height product cards. Storefront uses a float grid (ragged heights);
+   switch to flex so each row's cards match the tallest, normalize image height,
+   and pin Add to Cart to the bottom. */
+ul.products {
+  display: flex !important;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+ul.products::before,
+ul.products::after { content: none !important; display: none !important; }
+
+ul.products li.product {
+  float: none !important;
+  display: flex !important;
+  flex-direction: column;
+}
+
+/* Uniform product image box (contain = never crop books/sculptures) */
+ul.products li.product img,
+ul.products li.product .attachment-woocommerce_thumbnail {
+  height: 230px !important;
+  width: 100% !important;
+  object-fit: contain !important;
+  object-position: center;
+  margin-bottom: 0.8em !important;
+  background: #fff;
+}
+
+/* Title block consistent so prices/buttons line up */
+ul.products li.product .woocommerce-loop-product__title {
+  min-height: 3em;
+}
+
+/* Push price + button toward the bottom, button aligned across cards */
+ul.products li.product .price { margin-top: 0.3em; }
+ul.products li.product .button,
+ul.products li.product .added_to_cart { margin-top: auto !important; }
+/* === DSB_V15_END === */
+
+/* === DSB_V16_START === */
+@media (max-width: 768px) {
+  /* --- One-row mobile header: hamburger (left) · logo (center) · cart (right),
+         all vertically aligned. Collapse the branding row and overlay the logo,
+         using fixed tops so nothing drifts when the drawer opens. --- */
+  .site-header > .col-full:first-child {
+    height: 0 !important; min-height: 0 !important;
+    padding: 0 !important; margin: 0 !important; overflow: visible;
+  }
+  .storefront-primary-navigation { position: relative; margin: 0 !important; }
+  .storefront-primary-navigation .col-full { position: relative; min-height: 52px; }
+
+  .site-header .site-branding {
+    position: absolute !important;
+    left: 50% !important; top: 6px !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important; padding: 0 !important; width: auto !important;
+    text-align: center; float: none !important; z-index: 4;
+  }
+  .site-header .site-branding img.custom-logo { max-height: 40px !important; width: auto !important; }
+
+  .site-header .menu-toggle { top: 11px !important; transform: none !important; }
+  .site-header-cart { top: 9px !important; transform: none !important; }
+
+  /* --- Consistent full-width product cards on mobile (flex was sizing some to content) --- */
+  ul.products li.product {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+/* === DSB_V16_END === */
+
+/* === DSB_V17_START === */
+/* Empty categories (Boudoir/Magazines/Catalogs) now shown to match live, so the
+   widget has hide_empty=0 — but that also surfaces WooCommerce's default
+   "Uncategorized" term. Hide just that one. */
+.widget_product_categories li.cat-item-15,
+.product-categories li.cat-item-15 { display: none !important; }
+/* === DSB_V17_END === */
+
+/* === DSB_V18_START === */
+/* Product detail: make the quantity box the same height as the Add to Cart
+   button. Flex row with align-items:stretch keeps them matched automatically. */
+.single-product form.cart {
+  display: flex !important;
+  align-items: stretch !important;
+  flex-wrap: wrap;
+  gap: 0.6em;
+}
+.single-product form.cart .quantity {
+  display: flex !important;
+  margin: 0 !important;
+  float: none !important;
+}
+.single-product form.cart .quantity input.qty {
+  height: auto !important;
+  align-self: stretch;
+  box-sizing: border-box;
+}
+.single-product form.cart .single_add_to_cart_button {
+  margin: 0 !important;
+}
+/* === DSB_V18_END === */
