@@ -1,4 +1,4 @@
-*.log
-*.tmp
-*.swp
-.DS_Store
+backup.sh
+*.env
+*.sql
+*.sql.gz

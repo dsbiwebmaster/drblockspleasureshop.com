@@ -1,0 +1,10 @@
+[
+{"zone_id":0,"methods":
+[]}
+,
+{"zone_id":0,"methods":
+[]}
+,
+{"zone_id":1,"methods":
+[{"instance_id":1,"method_id":"free_shipping","enabled":true,"title":"Free shipping"},{"instance_id":2,"method_id":"flat_rate","enabled":true,"title":"Flat rate"}]}
+]

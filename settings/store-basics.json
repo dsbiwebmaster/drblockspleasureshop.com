@@ -1,0 +1,6 @@
+{
+    "woocommerce_currency": "USD",
+    "woocommerce_default_country": "US:CA",
+    "woocommerce_calc_taxes": "yes",
+    "woocommerce_coming_soon": "no"
+}

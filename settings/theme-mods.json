@@ -1,0 +1,22 @@
+{
+    "nav_menu_locations": {
+        "primary": 22
+    },
+    "custom_css_post_id": 81,
+    "background_color": "FFFFFF",
+    "storefront_heading_color": "222222",
+    "storefront_text_color": "333333",
+    "storefront_accent_color": "161616",
+    "storefront_header_background_color": "161616",
+    "storefront_header_text_color": "F7F7F7",
+    "storefront_header_link_color": "F7F7F7",
+    "storefront_footer_background_color": "161616",
+    "storefront_footer_text_color": "F7F7F7",
+    "storefront_button_background_color": "161616",
+    "storefront_button_text_color": "FFFFFF",
+    "storefront_button_alt_background_color": "161616",
+    "storefront_button_alt_text_color": "FFFFFF",
+    "custom_css": "@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&family=Lato:wght@300;400;700&display=swap');\n\n/* Typography */\nbody, .button, button, input, select, textarea { font-family: 'Lato', arial, sans-serif !important; }\nh1, h2, h3, h4, h5, h6, .site-title, .entry-title, .woocommerce-loop-product__title { font-family: 'Yeseva One', Georgia, serif !important; font-weight: 400 !important; letter-spacing: 0.01em; }\n\n/* Base layout */\nbody { background-color: #ffffff !important; color: #333 !important; }\n.site-header, .site-footer, .woocommerce-store-notice { background-color: #161616 !important; }\n.site-header *, .site-footer *, .woocommerce-store-notice * { color: #F7F7F7 !important; }\n.site-header a:hover { opacity: 0.7; }\n.site-content { background-color: #ffffff !important; color: #333 !important; }\n.entry-title, .woocommerce-loop-product__title, h1, h2, h3 { color: #222 !important; }\n\n/* Promo banner pinned top, like GoDaddy */\n.woocommerce-store-notice { position: relative !important; bottom: auto !important; text-align: center; padding: 0.6em 1em; font-size: 0.9em; letter-spacing: 0.04em; }\n.woocommerce-store-notice__dismiss-link { display: none !important; }\n\n/* Buttons */\n.button, button, .woocommerce a.button, .woocommerce button.button, input[type=\"submit\"] { \n  border-radius: 0 !important; \n  letter-spacing: 0.05em;\n  text-transform: uppercase;\n  padding: 0.85em 1.6em;\n}\n.woocommerce a.button, .woocommerce button.button { background: #161616 !important; color: #fff !important; border: 1px solid #161616 !important; }\n.woocommerce a.button:hover, .woocommerce button.button:hover { background: #fff !important; color: #161616 !important; }\n\n/* Product cards */\n.woocommerce ul.products li.product { \n  text-align: center; \n  background: #fafafa; \n  padding: 1.5em 1em; \n  transition: box-shadow 0.2s ease, transform 0.2s ease;\n}\n.woocommerce ul.products li.product:hover { \n  box-shadow: 0 8px 24px rgba(0,0,0,0.08); \n  transform: translateY(-2px); \n}\n.woocommerce ul.products li.product img { transition: opacity 0.2s ease; }\n.woocommerce ul.products li.product:hover img { opacity: 0.85; }\n\n/* Product title + price */\n.woocommerce ul.products li.product .woocommerce-loop-product__title { \n  font-size: 1.05em !important; \n  margin-top: 0.5em; \n  margin-bottom: 0.3em; \n  min-height: 2.6em; \n}\n.woocommerce ul.products li.product .price, .price { \n  color: #161616 !important; \n  font-weight: 700 !important; \n  font-family: 'Lato', sans-serif !important; \n  font-size: 1.1em;\n}\n\n/* Hide Storefront's \"Add to cart\" button on product loop (GoDaddy doesn't show one inline); rely on hover Quick View */\n.woocommerce ul.products li.product .button { \n  margin-top: 0.8em; \n  font-size: 0.85em;\n  background: transparent !important;\n  color: #161616 !important;\n  border: 1px solid #161616 !important;\n}\n.woocommerce ul.products li.product .button:hover { background: #161616 !important; color: #fff !important; }\n\n/* Section headings centered + bigger */\n.site-content h2, .woocommerce-products-header h1 { \n  font-size: 2.2em !important; \n  text-align: center; \n  margin: 1.8em 0 1em; \n  letter-spacing: 0.02em;\n}\n\n/* Footer minimal */\n.site-footer { padding: 2.5em 0 !important; border-top: 1px solid #2a2a2a; }\n.site-footer .col-full { text-align: center; }\n\n/* Hero block (homepage) \u2014 make h2 'Featured Products' first heading look like a hero */\n.home .site-content > .post:first-child .entry-title, .home .hentry .entry-title { display: none; }\n\n/* Category cards on homepage */\n.woocommerce .wc-block-product-categories img, .woocommerce-page .product-category img { display: block; margin: 0 auto; }",
+    "custom_logo": "100",
+    "storefront_layout": "left"
+}
