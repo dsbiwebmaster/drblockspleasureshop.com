@@ -1,23 +1,43 @@
-# Dr. Block's Pleasure Shop — site config
+# pleasureshop-config
 
-WordPress + WooCommerce site at https://dev.drblockspleasureshop.com (dev) → eventually drblockspleasureshop.com (prod).
+Trackable export of the **DB-backed WordPress structure/content** for
+dev.drblockspleasureshop.com (WooCommerce + Storefront). WordPress keeps this
+data in MySQL, not files — so we export it to diff-friendly files here and
+commit. This is the config/content layer, NOT a full site backup (full DB +
+uploads snapshots live in /home/pleasureshop/backups/, see backup.sh).
 
-This repo tracks the **code + content config**, not the full WP install. The site lives at:
-`/home/pleasureshop/domains/dev.drblockspleasureshop.com/public_html` on mjhst.
+## Workflow
+```bash
+sudo -u pleasureshop bash /home/pleasureshop/pleasureshop-config/export.sh
+cd /home/pleasureshop/pleasureshop-config
+git add -A && git diff --cached            # review what changed
+git commit -m "..."                        # commit the change
+```
+Run `export.sh` after any admin change (menus, pages, categories, widgets,
+shipping/tax, CSS, theme mods) to capture it as a reviewable commit.
 
-## Tracked
-- `mu-plugins/` — site-specific WP code (dsb-tweaks.php etc)
-- `css/customizer.css` — Storefront Customizer additional CSS
-- `meta/` — JSON exports of homepage, menu, theme mods, products, WC permalinks
+## Layout
+- `content/pages/*.html`     — each published Page's block markup (post_content)
+- `content/pages-index.json` — page id/title/slug/status
+- `content/products.json`    — catalog: id,name,sku,type,status,price,featured,categories
+- `structure/menus.json`     — nav menus + items
+- `structure/taxonomy-product_cat.json`, `...product_tag.json` — categories/tags
+- `structure/page-templates.json` — page → _wp_page_template assignment
+- `structure/shipping-zones.json`, `tax-rates.json`
+- `structure/sidebars.json`, `widget-instances.json` — widgets
+- `settings/theme-mods.json`, `permalinks.json`, `store-basics.json`
+- `settings/payment-gateways.json` — gateway id/enabled/title ONLY
+- `css/customizer.css`       — Customizer "Additional CSS" (DSB_V* blocks)
+- `mu-plugins/*.php`         — must-use plugin code
 
-## Backups (NOT in git)
-Daily mysqldumps + code snapshots at `/home/pleasureshop/backups/full-YYYYMMDD-HHMMSS/`.
-Cron entry in `/var/spool/cron/pleasureshop`.
+## SECRETS — never committed
+`export.sh` deliberately does NOT export payment-credential option rows
+(`woocommerce_easyauthnet_authorizenet_settings`, `woocommerce-ppcp-data-*`,
+`woocommerce_paypal_settings`). `.gitignore` excludes `backup.sh` (has the DB
+password), `*.env`, and `*.sql*`. Payment API keys live outside git:
+brawl `~/.paypal/` and `~/.CREDENTIALS.md`. A commit-time scan checks staged
+files for known secret fragments before committing.
 
-## Refresh tracked files
-`/home/pleasureshop/pleasureshop-config/refresh.sh` re-exports from live WP.
-
-## Restore
-- DB: `gunzip < <snapshot>/db/*.sql.gz | mysql -u user -p db`
-- Code: `cp -r <snapshot>/code/mu-plugins/* wp-content/mu-plugins/`
-- Content: `wp post update 75 --post_content="$(cat meta/homepage-75.html)"`
+## Not tracked here
+wp-core, plugins (rebuild from wp.org), wp-content/uploads (images), the DB
+itself. Restore those from /home/pleasureshop/backups/latest.
