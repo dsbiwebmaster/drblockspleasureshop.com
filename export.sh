@@ -19,7 +19,7 @@ done
 wp post list --post_type=page --post_status=publish --fields=ID,post_title,post_name,post_status --format=json 2>/dev/null > "$REPO/content/pages-index.json"
 
 echo "[*] content: products (no secrets)"
-wp wc product list --user=1 --per_page=100 --fields=id,name,sku,type,status,price,regular_price,featured,categories --format=json 2>/dev/null > "$REPO/content/products.json"
+wp wc product list --user=1 --per_page=100 --fields=id,name,sku,type,status,price,regular_price,featured,menu_order,categories --format=json 2>/dev/null > "$REPO/content/products.json"
 
 echo "[*] structure: menus"
 { echo '['; first=1
