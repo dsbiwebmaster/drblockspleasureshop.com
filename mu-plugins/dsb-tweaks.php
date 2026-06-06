@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: DSB Tweaks v5
- * Description: Storefront overrides — footer credit, loop title h3, header account+search icons, product social share.
+ * Plugin Name: DSB Tweaks v6
+ * Description: Storefront overrides — footer credit + policy links, loop title h3, header account+search icons, product social share, cookie consent banner.
  */
 
 add_action('init', function () {
@@ -15,13 +15,17 @@ add_action('init', function () {
 }, 99);
 
 add_action('storefront_footer', function () {
-    echo '<div class="dsb-footer-copy" style="text-align:center;padding:1em;font-size:0.85em;color:#666;">Copyright &copy; 2026 Dr. Block\'s Pleasure Shop - All Rights Reserved. <a href="/shop/" style="margin-left:1em;">Store</a></div>';
+    echo '<div class="dsb-footer-copy" style="text-align:center;padding:1em;font-size:0.85em;color:#666;">'
+       . 'Copyright &copy; 2026 Dr. Block\'s Pleasure Shop - All Rights Reserved. '
+       . '<a href="/shop/">Store</a> &nbsp;|&nbsp; '
+       . '<a href="/privacy-policy/">Privacy</a> &nbsp;|&nbsp; '
+       . '<a href="/terms/">Terms</a> &nbsp;|&nbsp; '
+       . '<a href="/refund_returns/">Refunds</a>'
+       . '</div>';
 }, 25);
 
 /**
- * Header account + search icons, matching the live GoDaddy header
- * (which shows search, account, and cart icons top-right).
- * Cart is injected by Storefront at priority 60; we add ours at 55.
+ * Header account + search icons, matching the live GoDaddy header.
  */
 add_action('storefront_header', function () {
     if (!function_exists('wc_get_page_permalink')) {
@@ -57,7 +61,6 @@ add_action('storefront_header', function () {
 
 /**
  * Social share (Facebook + X) on product detail pages.
- * Hooked into the product summary, just after Add to Cart / meta.
  */
 add_action('woocommerce_single_product_summary', function () {
     if (!is_product()) {
@@ -75,3 +78,36 @@ add_action('woocommerce_single_product_summary', function () {
        . '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 1.8h3.3l-7.2 8.22L23.64 22h-6.6l-5.17-6.76L5.92 22H2.62l7.7-8.79L2.36 1.8h6.77l4.67 6.18zM17.74 20.03h1.83L8.34 3.67H6.38z"/></svg></a>'
        . '</div>';
 }, 45);
+
+/**
+ * Cookie consent banner (matches the live GoDaddy site).
+ */
+add_action('wp_footer', function () {
+    ?>
+    <div class="dsb-cookie" id="dsbCookie" hidden>
+        <div class="dsb-cookie-inner">
+            <div class="dsb-cookie-text">
+                <strong>This website uses cookies.</strong>
+                We use cookies to analyze website traffic and optimize your website experience. By accepting our use of cookies, your data will be aggregated with all other user data.
+                <a href="/privacy-policy/">Learn more</a>
+            </div>
+            <button type="button" class="dsb-cookie-accept" id="dsbCookieAccept">Accept</button>
+        </div>
+    </div>
+    <script>
+    (function () {
+        var el = document.getElementById('dsbCookie');
+        if (!el) { return; }
+        var consented = document.cookie.split('; ').some(function (c) { return c.indexOf('dsb_cookie_consent=') === 0; });
+        if (!consented) { el.removeAttribute('hidden'); }
+        var btn = document.getElementById('dsbCookieAccept');
+        if (btn) {
+            btn.addEventListener('click', function () {
+                document.cookie = 'dsb_cookie_consent=1; path=/; max-age=' + (60 * 60 * 24 * 365) + '; samesite=lax';
+                el.setAttribute('hidden', '');
+            });
+        }
+    })();
+    </script>
+    <?php
+});
