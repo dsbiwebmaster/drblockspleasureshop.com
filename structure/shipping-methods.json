@@ -1,0 +1,13 @@
+{
+    "woocommerce_flat_rate_2_settings": {
+        "title": "Flat rate",
+        "tax_status": "taxable",
+        "cost": "20.00"
+    },
+    "woocommerce_free_shipping_1_settings": {
+        "title": "Free shipping",
+        "requires": "min_amount",
+        "min_amount": "100",
+        "ignore_discounts": "no"
+    }
+}

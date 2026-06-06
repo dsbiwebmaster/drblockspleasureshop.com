@@ -68,4 +68,6 @@ wp eval 'echo wp_get_custom_css();' 2>/dev/null > "$REPO/css/customizer.css"
 rm -f "$REPO"/mu-plugins/*.php
 cp "$DOCROOT"/wp-content/mu-plugins/*.php "$REPO/mu-plugins/" 2>/dev/null
 
+echo "[*] structure: shipping method settings (cost/min_amount, no secrets)"
+wp eval '$w=$GLOBALS["wpdb"];$ks=$w->get_col("SELECT option_name FROM {$w->options} WHERE option_name REGEXP \"^woocommerce_(flat_rate|free_shipping|local_pickup)_[0-9]+_settings$\"");$o=array();foreach($ks as $k)$o[$k]=get_option($k);echo json_encode($o,JSON_PRETTY_PRINT);' 2>/dev/null > "$REPO/structure/shipping-methods.json"
 echo "[*] done"
