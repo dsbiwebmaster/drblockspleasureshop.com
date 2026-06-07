@@ -830,3 +830,16 @@ ul.products li.product .added_to_cart { margin-top: auto !important; }
 .dsb-footer-copy a { color:#888; }
 .dsb-footer-copy a:hover { color:#bbb; }
 /* === DSB_V21_END === */
+
+/* === DSB_V22_START === */
+/* Search field was inheriting the header's white text (.site-header * !important)
+   -> white-on-light, unreadable when typing. Force dark text on white. */
+.dsb-search-panel input,
+.dsb-search-panel input[type="search"],
+.dsb-search-panel .search-field {
+  color: #161616 !important;
+  background: #ffffff !important;
+  -webkit-text-fill-color: #161616 !important;
+}
+.dsb-search-panel input::placeholder { color: #666 !important; -webkit-text-fill-color: #666 !important; }
+/* === DSB_V22_END === */
