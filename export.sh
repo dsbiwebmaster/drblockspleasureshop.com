@@ -7,7 +7,7 @@
 # (woocommerce_easyauthnet_authorizenet_settings, woocommerce-ppcp-data-*,
 # woocommerce_paypal_settings). Only structure/content/non-secret settings.
 REPO=/home/pleasureshop/pleasureshop-config
-DOCROOT=/home/pleasureshop/domains/dev.drblockspleasureshop.com/public_html
+DOCROOT=/home/pleasureshop/domains/drblockspleasureshop.com/public_html
 cd "$DOCROOT" || exit 1
 mkdir -p "$REPO"/{content/pages,structure,settings,css,mu-plugins}
 
