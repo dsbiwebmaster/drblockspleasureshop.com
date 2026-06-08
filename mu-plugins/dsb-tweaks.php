@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: DSB Tweaks v6
- * Description: Storefront overrides — footer credit + policy links, loop title h3, header account+search icons, product social share, cookie consent banner.
+ * Plugin Name: DSB Tweaks v7
+ * Description: Storefront overrides — footer+policy links, loop title h3, header search/account icons, product share, cookie banner, local email subscribers.
  */
 
 add_action('init', function () {
@@ -111,3 +111,68 @@ add_action('wp_footer', function () {
     </script>
     <?php
 });
+
+/**
+ * Email subscribers — local storage + honeypot anti-spam (no third party).
+ * Homepage form posts to /?dsb_subscribe=1 with field `email` + honeypot `hp_website`.
+ */
+define('DSB_SUBSCRIBERS_DB_VERSION', '1.0');
+
+add_action('init', function () {
+    global $wpdb;
+    $table = $wpdb->prefix . 'dsb_subscribers';
+    if (get_option('dsb_subscribers_db_version') !== DSB_SUBSCRIBERS_DB_VERSION) {
+        require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+        dbDelta("CREATE TABLE $table (
+            id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+            email VARCHAR(190) NOT NULL,
+            created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            ip VARCHAR(45) NOT NULL DEFAULT '',
+            source VARCHAR(100) NOT NULL DEFAULT '',
+            status VARCHAR(20) NOT NULL DEFAULT 'subscribed',
+            PRIMARY KEY  (id),
+            UNIQUE KEY email (email)
+        ) " . $wpdb->get_charset_collate() . ";");
+        update_option('dsb_subscribers_db_version', DSB_SUBSCRIBERS_DB_VERSION);
+    }
+    if (isset($_GET['dsb_subscribe']) && (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST')) {
+        $back = wp_get_referer() ? wp_get_referer() : home_url('/');
+        if (!empty($_POST['hp_website'])) { wp_safe_redirect(add_query_arg('subscribed', '1', $back)); exit; } // honeypot
+        $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+        if (!is_email($email)) { wp_safe_redirect(add_query_arg('subscribed', 'err', $back)); exit; }
+        $ip = isset($_SERVER['REMOTE_ADDR']) ? substr(sanitize_text_field($_SERVER['REMOTE_ADDR']), 0, 45) : '';
+        $wpdb->query($wpdb->prepare(
+            "INSERT INTO $table (email, ip, source) VALUES (%s, %s, %s) ON DUPLICATE KEY UPDATE created_at = created_at",
+            $email, $ip, 'homepage'
+        ));
+        wp_safe_redirect(add_query_arg('subscribed', '1', $back)); exit;
+    }
+}, 5);
+
+add_action('wp_footer', function () {
+    ?>
+    <script>(function(){var p=new URLSearchParams(location.search);if(!p.has('subscribed'))return;var f=document.querySelector('.subscribe-form');if(!f)return;var ok=p.get('subscribed')==='1';var d=document.createElement('div');d.textContent=ok?'Thanks for subscribing!':'Please enter a valid email.';d.style.cssText='margin-top:.6em;font-weight:600;color:'+(ok?'#2ec28b':'#ff6b6b');f.appendChild(d);})();</script>
+    <?php
+});
+
+add_action('admin_menu', function () {
+    add_management_page('Subscribers', 'Subscribers', 'manage_options', 'dsb-subscribers', 'dsb_subscribers_admin_page');
+});
+function dsb_subscribers_admin_page() {
+    if (!current_user_can('manage_options')) { return; }
+    global $wpdb; $table = $wpdb->prefix . 'dsb_subscribers';
+    if (isset($_GET['export'])) {
+        $rows = $wpdb->get_results("SELECT email, created_at, ip, source, status FROM $table ORDER BY created_at DESC", ARRAY_A);
+        nocache_headers(); header('Content-Type: text/csv'); header('Content-Disposition: attachment; filename=subscribers.csv');
+        $out = fopen('php://output', 'w'); fputcsv($out, array('email','created_at','ip','source','status'));
+        foreach ((array) $rows as $r) { fputcsv($out, $r); } fclose($out); exit;
+    }
+    $count = (int) $wpdb->get_var("SELECT COUNT(*) FROM $table");
+    $rows = $wpdb->get_results("SELECT * FROM $table ORDER BY created_at DESC LIMIT 500", ARRAY_A);
+    echo '<div class="wrap"><h1>Subscribers (' . $count . ')</h1>';
+    echo '<p><a class="button button-primary" href="' . esc_url(admin_url('tools.php?page=dsb-subscribers&export=1')) . '">Export CSV</a></p>';
+    echo '<table class="widefat striped"><thead><tr><th>Email</th><th>Date</th><th>IP</th><th>Source</th></tr></thead><tbody>';
+    if (!$rows) { echo '<tr><td colspan="4">No subscribers yet.</td></tr>'; }
+    foreach ((array) $rows as $r) { echo '<tr><td>' . esc_html($r['email']) . '</td><td>' . esc_html($r['created_at']) . '</td><td>' . esc_html($r['ip']) . '</td><td>' . esc_html($r['source']) . '</td></tr>'; }
+    echo '</tbody></table></div>';
+}
