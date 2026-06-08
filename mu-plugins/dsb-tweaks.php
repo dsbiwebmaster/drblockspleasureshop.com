@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: DSB Tweaks v7
+ * Plugin Name: DSB Tweaks v8
  * Description: Storefront overrides — footer+policy links, loop title h3, header search/account icons, product share, cookie banner, local email subscribers.
  */
 
@@ -176,3 +176,19 @@ function dsb_subscribers_admin_page() {
     foreach ((array) $rows as $r) { echo '<tr><td>' . esc_html($r['email']) . '</td><td>' . esc_html($r['created_at']) . '</td><td>' . esc_html($r['ip']) . '</td><td>' . esc_html($r['source']) . '</td></tr>'; }
     echo '</tbody></table></div>';
 }
+
+/**
+ * 301 redirects for legacy GoDaddy URLs that now 404 on the WooCommerce store.
+ */
+add_action('template_redirect', function () {
+    if (!is_404()) { return; }
+    $path = '/' . trim((string) parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH), '/');
+    $map = array(
+        '/product-category/fashion'      => '/product-category/gear/',
+        '/product-category/apparel'      => '/product-category/gear/',
+        '/product/bonoboville-t-shirt-4' => '/product/bonoboville-t-shirt/',
+    );
+    if (isset($map[$path])) { wp_redirect(home_url($map[$path]), 301); exit; }
+    // legacy GoDaddy "/collection/*" monthly collections -> shop
+    if (strpos($path, '/collection') === 0) { wp_redirect(home_url('/shop/'), 301); exit; }
+}, 1);

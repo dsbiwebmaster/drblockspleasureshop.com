@@ -843,3 +843,11 @@ ul.products li.product .added_to_cart { margin-top: auto !important; }
 }
 .dsb-search-panel input::placeholder { color: #666 !important; -webkit-text-fill-color: #666 !important; }
 /* === DSB_V22_END === */
+
+/* === DSB_V23_START === */
+/* Subscribe "Sign up" button was wrapping to two lines on mobile */
+.subscribe-form button, .subscribe-form .button, .subscribe-form input[type="submit"] {
+  white-space: nowrap !important;
+  flex: 0 0 auto;
+}
+/* === DSB_V23_END === */
